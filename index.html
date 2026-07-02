@@ -34,6 +34,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/src/scss/main.scss" />
+  <link rel="preload" as="image" href="/images/1.webp" />
 <script type="module" src="/src/js/main.js"></script>
 
   <script type="application/ld+json">
@@ -142,7 +143,10 @@
 
         <div class="plan-canje__showcase reveal">
           <div class="plan-canje__showcase-image">
-            <img src="/images/2.jpg" alt="Plan Canje Rells - Entregá tu iPhone usado como parte de pago" />
+            <picture>
+              <source srcset="/images/2.webp" type="image/webp" />
+              <img src="/images/2.jpg" alt="Plan Canje Rells - Entregá tu iPhone usado como parte de pago" loading="lazy" />
+            </picture>
           </div>
           <div class="plan-canje__showcase-text">
             <h3>Tu iPhone vale más de lo que pensás</h3>
@@ -183,7 +187,10 @@
         </header>
 
         <div class="servicio-tecnico__image-banner reveal">
-          <img src="/images/3.jpg" alt="Servicio Técnico Especializado Rells - Reparación de iPhone y equipos Apple" />
+          <picture>
+              <source srcset="/images/3.webp" type="image/webp" />
+              <img src="/images/3.jpg" alt="Servicio Técnico Especializado Rells - Reparación de iPhone y equipos Apple" loading="lazy" />
+            </picture>
           <span class="servicio-tecnico__banner-text">Repuestos de alta calidad</span>
         </div>
 
