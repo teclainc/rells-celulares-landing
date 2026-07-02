@@ -17,7 +17,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 0;
   }
 
@@ -27,7 +27,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 40%;
+    height: 30%;
     background: linear-gradient(to bottom, transparent, #000);
     z-index: 0;
     pointer-events: none;
