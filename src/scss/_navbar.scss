@@ -117,10 +117,12 @@
   justify-content: center;
   gap: 32px;
   position: fixed;
-  inset: 0;
+  top: calc(-1 * env(safe-area-inset-top));
+  right: calc(-1 * env(safe-area-inset-right));
+  bottom: calc(-1 * env(safe-area-inset-bottom));
+  left: calc(-1 * env(safe-area-inset-left));
   background: #000;
   z-index: 1000;
-  padding-top: env(safe-area-inset-top);
 }
 
 .nav-link {

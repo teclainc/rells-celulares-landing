@@ -37,18 +37,32 @@ function initMobileMenu() {
   const toggle = navbar?.querySelector('.navbar__toggle');
   if (!navbar || !toggle) return;
 
+  let scrollY = 0;
+
   function close() {
     navbar.classList.remove('menu-open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Abrir menú');
     document.body.classList.remove('menu-open');
+    document.body.style.top = '';
+    window.scrollTo(0, scrollY);
+  }
+
+  function open() {
+    scrollY = window.scrollY;
+    document.body.style.top = `-${scrollY}px`;
+    navbar.classList.add('menu-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Cerrar menú');
+    document.body.classList.add('menu-open');
   }
 
   toggle.addEventListener('click', () => {
-    const isOpen = navbar.classList.toggle('menu-open');
-    toggle.setAttribute('aria-expanded', isOpen);
-    toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
-    document.body.classList.toggle('menu-open', isOpen);
+    if (navbar.classList.contains('menu-open')) {
+      close();
+    } else {
+      open();
+    }
   });
 
   navbar.querySelectorAll('.navbar__links .nav-link').forEach((link) => {
