@@ -45,7 +45,7 @@ function initMobileMenu() {
   }
 
   function close() {
-    links.removeEventListener('touchmove', preventScroll, { passive: false });
+    document.removeEventListener('touchmove', preventScroll, { passive: false });
     navbar.classList.remove('menu-open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Abrir menú');
@@ -61,7 +61,7 @@ function initMobileMenu() {
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Cerrar menú');
     document.body.classList.add('menu-open');
-    links.addEventListener('touchmove', preventScroll, { passive: false });
+    document.addEventListener('touchmove', preventScroll, { passive: false });
   }
 
   toggle.addEventListener('click', () => {
