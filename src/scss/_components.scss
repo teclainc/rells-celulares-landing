@@ -41,6 +41,12 @@
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 
+  @media (max-width: ($bp-sm - 1px)) {
+    white-space: normal;
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
   @media (min-width: $bp-md) {
     padding: 14px 32px;
   }
@@ -124,6 +130,8 @@
   border-radius: $radius-lg;
   background: $glass-bg;
   border: 1px solid $glass-border;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
 
   @media (min-width: $bp-md) {
@@ -188,6 +196,8 @@
   border-radius: $radius-md;
   background: $glass-bg;
   border: 1px solid $glass-border;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
 
   @media (min-width: $bp-md) {
@@ -242,6 +252,8 @@
   border-radius: $radius-full;
   background: $glass-bg;
   border: 1px solid $glass-border;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   font-size: 13px;
   color: $color-gray;
   margin-bottom: 24px;
