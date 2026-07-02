@@ -32,28 +32,6 @@ function initNavbar() {
   onScroll();
 }
 
-function initMobileMenu() {
-  const navbar = document.querySelector('.navbar');
-  const toggle = navbar?.querySelector('.navbar__toggle');
-  if (!navbar || !toggle) return;
-
-  toggle.addEventListener('click', () => {
-    const isOpen = navbar.classList.toggle('menu-open');
-    toggle.setAttribute('aria-expanded', isOpen);
-    toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
-    document.body.classList.toggle('menu-open', isOpen);
-  });
-
-  navbar.querySelectorAll('.navbar__links .nav-link').forEach((link) => {
-    link.addEventListener('click', () => {
-      navbar.classList.remove('menu-open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Abrir menú');
-      document.body.classList.remove('menu-open');
-    });
-  });
-}
-
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
@@ -105,7 +83,6 @@ function initWhatsAppLinks() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
-  initMobileMenu();
   initSmoothScroll();
   initRevealAnimations();
   initWhatsAppLinks();
