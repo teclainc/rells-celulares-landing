@@ -40,6 +40,7 @@
   letter-spacing: -0.01em;
   transition: $transition-default;
   flex-shrink: 0;
+  z-index: 1001;
 
   &:hover {
     opacity: 0.8;
@@ -54,29 +55,85 @@
   flex-shrink: 0;
 }
 
-.navbar__links {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.navbar__brand-text {
+  @media (max-width: 359px) {
+    display: none;
+  }
+}
 
-  @media (min-width: $bp-sm) {
-    gap: 24px;
+.navbar__toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+
+  span {
+    display: block;
+    width: 20px;
+    height: 1.5px;
+    background: $color-white;
+    border-radius: 1px;
+    transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
   @media (min-width: $bp-md) {
+    display: none;
+  }
+}
+
+.navbar.menu-open .navbar__toggle {
+  span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  span:nth-child(2) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+}
+
+.navbar__links {
+  display: none;
+
+  @media (min-width: $bp-md) {
+    display: flex;
+    align-items: center;
     gap: 32px;
   }
 }
 
+.navbar.menu-open .navbar__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+}
+
 .nav-link {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   letter-spacing: 0;
   color: $color-gray;
   transition: $transition-default;
 
-  @media (min-width: $bp-sm) {
-    font-size: 14px;
+  @media (max-width: ($bp-md - 1px)) {
+    font-size: 24px;
+    font-weight: 500;
   }
 
   &:hover {
@@ -86,11 +143,5 @@
   &:active {
     color: $color-white;
     opacity: 0.7;
-  }
-}
-
-.navbar__brand-text {
-  @media (max-width: 359px) {
-    display: none;
   }
 }
