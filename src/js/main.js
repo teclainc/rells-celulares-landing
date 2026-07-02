@@ -35,11 +35,17 @@ function initNavbar() {
 function initMobileMenu() {
   const navbar = document.querySelector('.navbar');
   const toggle = navbar?.querySelector('.navbar__toggle');
-  if (!navbar || !toggle) return;
+  const links = navbar?.querySelector('.navbar__links');
+  if (!navbar || !toggle || !links) return;
 
   let scrollY = 0;
 
+  function preventScroll(e) {
+    e.preventDefault();
+  }
+
   function close() {
+    links.removeEventListener('touchmove', preventScroll, { passive: false });
     navbar.classList.remove('menu-open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Abrir menú');
@@ -55,6 +61,7 @@ function initMobileMenu() {
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Cerrar menú');
     document.body.classList.add('menu-open');
+    links.addEventListener('touchmove', preventScroll, { passive: false });
   }
 
   toggle.addEventListener('click', () => {
