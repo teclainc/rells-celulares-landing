@@ -10,19 +10,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid transparent;
+  background-color: #000;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid $color-gray-border;
   transition: $transition-default;
   padding: 0 16px;
 
   @media (min-width: $bp-md) {
     padding: 0 24px;
-  }
-
-  &.scrolled {
-    border-bottom-color: $color-gray-border;
   }
 }
 
