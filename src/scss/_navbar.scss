@@ -118,10 +118,9 @@
   gap: 32px;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.97);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: #000;
   z-index: 1000;
+  padding-top: env(safe-area-inset-top);
 }
 
 .nav-link {
