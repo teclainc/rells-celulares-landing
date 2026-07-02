@@ -1,10 +1,19 @@
 const WHATSAPP_NUMBER = '5491151234212';
+const NAVBAR_HEIGHT = 56;
 
 const WHATSAPP_MESSAGES = {
   general: 'Hola,%20quiero%20consultar%20por%20un%20iPhone',
   cotizar: 'Hola,%20quiero%20cotizar%20mi%20iPhone%20usado%20para%20el%20Plan%20Canje',
   tecnico: 'Hola,%20quiero%20solicitar%20un%20presupuesto%20t%C3%A9cnico',
 };
+
+function debounce(fn, ms) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), ms);
+  };
+}
 
 function buildWhatsAppLink(messageKey) {
   const message = WHATSAPP_MESSAGES[messageKey];
@@ -13,17 +22,36 @@ function buildWhatsAppLink(messageKey) {
 
 function initNavbar() {
   const navbar = document.querySelector('.navbar');
+  if (!navbar) return;
 
-  function onScroll() {
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  }
+  const onScroll = debounce(() => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  }, 10);
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+}
+
+function initMobileMenu() {
+  const navbar = document.querySelector('.navbar');
+  const toggle = navbar?.querySelector('.navbar__toggle');
+  if (!navbar || !toggle) return;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = navbar.classList.toggle('menu-open');
+    toggle.setAttribute('aria-expanded', isOpen);
+    toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    document.body.classList.toggle('menu-open', isOpen);
+  });
+
+  navbar.querySelectorAll('.navbar__links .nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('menu-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menú');
+      document.body.classList.remove('menu-open');
+    });
+  });
 }
 
 function initSmoothScroll() {
@@ -37,13 +65,17 @@ function initSmoothScroll() {
       }
       const target = document.querySelector(href);
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
+        const top = target.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
     });
   });
 }
 
 function initRevealAnimations() {
+  const supportsReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (supportsReducedMotion) return;
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -54,8 +86,8 @@ function initRevealAnimations() {
       });
     },
     {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.15,
+      rootMargin: '0px 0px -30px 0px',
     }
   );
 
@@ -73,6 +105,7 @@ function initWhatsAppLinks() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
+  initMobileMenu();
   initSmoothScroll();
   initRevealAnimations();
   initWhatsAppLinks();

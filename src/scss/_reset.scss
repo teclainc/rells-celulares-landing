@@ -11,6 +11,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  scroll-padding-top: $navbar-height;
 }
 
 body {
@@ -20,6 +21,11 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+
+  &.menu-open {
+    overflow: hidden;
+  }
 }
 
 img {
@@ -49,4 +55,15 @@ ol {
 ::selection {
   background: rgba(255, 255, 255, 0.2);
   color: $color-white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
