@@ -1,0 +1,57 @@
+@use 'variables' as *;
+
+.heading-1 {
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: $color-white;
+}
+
+.heading-2 {
+  font-size: clamp(32px, 4.5vw, 48px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: $color-white;
+}
+
+.heading-3 {
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: $color-white;
+}
+
+.subtitle {
+  font-size: clamp(17px, 2vw, 21px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: $color-gray;
+}
+
+.body-text {
+  font-size: clamp(15px, 1.6vw, 17px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: $color-gray;
+}
+
+.caption {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $color-gray;
+}
+
+.nav-link {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: $color-gray;
+  transition: $transition-default;
+
+  &:hover {
+    color: $color-white;
+  }
+}

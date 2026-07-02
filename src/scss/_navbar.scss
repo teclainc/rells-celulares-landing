@@ -1,0 +1,64 @@
+@use 'variables' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: $navbar-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: $navbar-blur;
+  -webkit-backdrop-filter: $navbar-blur;
+  border-bottom: 1px solid transparent;
+  transition: $transition-default;
+  padding: 0 24px;
+
+  &.scrolled {
+    border-bottom-color: $color-gray-border;
+  }
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: $container-max;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  color: $color-white;
+  letter-spacing: -0.01em;
+  transition: $transition-default;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.navbar__apple {
+  flex-shrink: 0;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  @media (max-width: $bp-tablet) {
+    gap: 20px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 14px;
+  }
+}

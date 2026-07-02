@@ -1,0 +1,240 @@
+@use 'variables' as *;
+
+.container {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.section-header__title {
+  margin-bottom: 16px;
+}
+
+.section-header__subtitle {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: $radius-full;
+  transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+
+  &--primary {
+    background-color: $color-white;
+    color: $color-bg;
+
+    &:hover {
+      background-color: #e6e6e6;
+      transform: scale(1.03);
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.15);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: $color-white;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.05);
+      transform: scale(1.03);
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.08);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  &--whatsapp {
+    background-color: $color-whatsapp;
+    color: $color-white;
+
+    &:hover {
+      background-color: #1eaf53;
+      transform: scale(1.03);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 4vw, 48px);
+  margin-bottom: clamp(48px, 6vw, 64px);
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.step-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 24px;
+  border-radius: $radius-lg;
+  background: $glass-bg;
+  border: 1px solid $glass-border;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  &:hover {
+    background: $glass-hover-bg;
+    border-color: $glass-hover-border;
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px $glass-hover-border;
+  }
+}
+
+.step-card__number {
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-gray;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+
+.step-card__title {
+  font-size: 19px;
+  font-weight: 600;
+  color: $color-white;
+  margin-bottom: 8px;
+}
+
+.step-card__desc {
+  font-size: 15px;
+  color: $color-gray;
+  line-height: 1.5;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 3vw, 32px);
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border-radius: $radius-md;
+  background: $glass-bg;
+  border: 1px solid $glass-border;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  &:hover {
+    background: $glass-hover-bg;
+    border-color: $glass-hover-border;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.service-item__icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-sm;
+  background-color: rgba(255, 255, 255, 0.06);
+  color: $color-white;
+  font-size: 18px;
+}
+
+.service-item__label {
+  font-size: 16px;
+  font-weight: 500;
+  color: $color-white;
+}
+
+.warranty-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: $radius-full;
+  background: $glass-bg;
+  border: 1px solid $glass-border;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  font-size: 14px;
+  color: $color-gray;
+  margin-bottom: 32px;
+}
+
+.map-embed {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(30%) brightness(0.85) contrast(1.1);
+}
+
+.cta-wrapper {
+  text-align: center;
+  margin-top: clamp(40px, 6vw, 64px);
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: $color-gray-border;
+  margin: 0 auto;
+  max-width: $container-max;
+  padding: 0 24px;
+}
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 20%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.06) 80%,
+    transparent 100%
+  );
+}

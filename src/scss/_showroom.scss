@@ -1,0 +1,76 @@
+@use 'variables' as *;
+
+.showroom {
+  padding: $section-padding;
+}
+
+.showroom__info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 5vw, 56px);
+  align-items: stretch;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.showroom__map-wrapper {
+  min-height: clamp(240px, 40vw, 400px);
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: 1px solid $glass-border;
+}
+
+.showroom__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  padding: 32px;
+  border-radius: $radius-lg;
+  background: $glass-bg;
+  border: 1px solid $glass-border;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.showroom__address-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-gray;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.showroom__address-text {
+  font-size: 17px;
+  color: $color-white;
+  line-height: 1.5;
+}
+
+.showroom__schedule {
+  padding-top: 8px;
+}
+
+.showroom__schedule-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-gray;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.showroom__schedule-item {
+  font-size: 15px;
+  color: $color-white;
+  margin-bottom: 4px;
+
+  span {
+    color: $color-gray;
+    margin-left: 4px;
+  }
+}
