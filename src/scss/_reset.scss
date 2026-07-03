@@ -11,7 +11,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  scroll-padding-top: $navbar-height;
+  scroll-padding-top: calc(#{$navbar-height} + env(safe-area-inset-top));
 }
 
 body {

@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  height: $navbar-height;
+  height: calc(#{$navbar-height} + env(safe-area-inset-top));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +15,7 @@
   -webkit-backdrop-filter: none;
   border-bottom: 1px solid $color-gray-border;
   transition: $transition-default;
-  padding: 0 16px;
+  padding: env(safe-area-inset-top) 16px 0;
 
   @media (min-width: $bp-md) {
     padding: 0 24px;

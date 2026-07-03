@@ -1,5 +1,9 @@
 const WHATSAPP_NUMBER = '5491151234212';
-const NAVBAR_HEIGHT = 56;
+
+function getNavbarHeight() {
+  const navbar = document.querySelector('.navbar');
+  return navbar ? navbar.offsetHeight : 56;
+}
 
 const WHATSAPP_MESSAGES = {
   general: 'Hola,%20quiero%20consultar%20por%20un%20iPhone',
@@ -88,7 +92,7 @@ function initSmoothScroll() {
       }
       const target = document.querySelector(href);
       if (target) {
-        const top = target.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
+        const top = target.getBoundingClientRect().top + window.scrollY - getNavbarHeight();
         window.scrollTo({ top, behavior: 'smooth' });
       }
     });
