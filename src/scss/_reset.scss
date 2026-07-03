@@ -11,7 +11,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  scroll-padding-top: calc(#{$navbar-height} + env(safe-area-inset-top));
+  scroll-padding-top: $navbar-height;
   background-color: #000;
 }
 
@@ -20,16 +20,10 @@ body {
   background-color: $color-bg;
   color: $color-white;
   line-height: 1.6;
+  padding-top: $navbar-height;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-
-  &.menu-open {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    overscroll-behavior: none;
-  }
 }
 
 img {
