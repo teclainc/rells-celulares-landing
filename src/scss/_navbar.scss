@@ -16,9 +16,6 @@
   padding-bottom: 0;
   padding-left: 16px;
   padding-right: 16px;
-  will-change: transform;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
 
   &::before {
     content: "";
