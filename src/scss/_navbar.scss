@@ -17,17 +17,6 @@
   transition: $transition-default;
   padding: 0 16px;
 
-  &::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: env(safe-area-inset-top);
-    background-color: #000;
-    z-index: 1002;
-  }
-
   @media (min-width: $bp-md) {
     padding: 0 24px;
   }
